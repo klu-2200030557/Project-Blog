@@ -1,0 +1,30 @@
+
+signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Adjust background color */
+}
+
+.medium-input {
+  width: 300px; /* Adjust width as needed */
+  padding: 8px; /* Add padding */
+  margin: 8px 0; /* Add margin for spacing */
+}
+
+.large-input {
+  width: 300px; /* Adjust width as needed */
+  padding: 10px; /* Add padding */
+  margin: 10px 0; /* Add margin for spacing */
+}
+
+.signup-button {
+  padding: 12px;
+  font-size: 16px; /* Adjust font size */
+  background-color: #4caf50; /* Green color, adjust as needed */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
