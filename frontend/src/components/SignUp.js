@@ -20,9 +20,11 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const [successMessage, setSuccessMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -59,20 +61,21 @@ export default function SignUp() {
       });
 
       if (response.ok) {
-        console.log('User registered successfully');
-        navigate('/FetchRegistration'); // Redirect the user
+        alert('User registered successfully');
+        setError(''); // Clear any existing error messages
+// Redirect the user
+navigate('/');
         // You may want to redirect the user or perform other actions upon successful registration
       } else {
         console.error('Failed to register user');
-        // Handle the error, show an error message, or perform other actions
+        setError('Failed to register user. Please try again.'); // Show a generic error message
       }
       
     } catch (error) {
       console.error('Error:', error.message);
-      // Handle the error, show an error message, or perform other actions
+      setError('An unexpected error occurred. Please try again.'); // Show a generic error message
     }
   };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -151,6 +154,7 @@ export default function SignUp() {
                   >
                     <MenuItem value="Visitor">Visitor</MenuItem>
                     <MenuItem value="Admin">Admin</MenuItem>
+                    <MenuItem value="Student">Student</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
